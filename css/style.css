@@ -38,6 +38,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .encabezado h1 {
@@ -50,8 +51,7 @@ nav a:hover {
     font-weight: 350;
 }
 
-/*Body*/
-
+/* Body */
 .containerDivs {
     max-width: 1200px;
     margin: 0 auto;
@@ -69,91 +69,96 @@ p {
     right: 5px;
 }
 
-.div1 {
-    position: relative;
-    width: 1150px;
-    top: 100px;
+.div1,
+.div2,
+.div3,
+.div4,
+.div5 {
     font-size: 20px;
     text-align: justify;
+    margin-bottom: 30px;
+    width: 500px;
+}
+
+.div1 {
+    margin-top: 100px;
 }
 
 .div2 {
-    width: 1150px;
-    font-size: 20px;
-    text-align: justify;
     position: relative;
-    top: 130px;
+    bottom: 250px;
+    margin-left: 600px;
 }
 
 .div3 {
-    width: 1150px;
-    font-size: 20px;
-    text-align: justify;
+    margin-top: 30px;
     position: relative;
-    top: 160px;
+    bottom: 500px;
 }
 
 .div4 {
-    width: 1150px;
-    font-size: 20px;
-    text-align: justify;
-    position: relative;
-    top: 180px;
+    margin-top: 30px;
 }
 
 .div5 {
     width: 1150px;
-    font-size: 20px;
-    text-align: justify;
-    position: relative;
-    top: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.img1,
+.img2,
+.img3,
+.img4 {
+    width: 500px;
+    height: 300px;
+}
 
 .img1 {
-    width: 1200px;
-    height: 600px;
+    margin-left: 600px;
+    position: relative;
+    bottom: 300px;
 }
 
 .img2 {
-    height: 550px;
-    width: 1150px;
+    margin-top: 20px;
+    position: relative;
+    right: 600px;
+    bottom: 325px;
 }
 
 .img3 {
-    height: 600px;
-    width: 1150px;
+    margin-top: 20px;
+    position: relative;
+    left: 600px;
+    bottom: 325px;
 }
 
 .img4 {
-    height: 550px;
-    width: 1150px;
+    margin-top: 20px;
+    /* Espacio superior */
 }
 
-/*Footer */
-
+/* Footer 
 footer {
     width: 100%;
-    position: relative;
-    top: 250px;
-    left: 0;
     padding: 1rem;
+    margin: 0;
     background-color: rgb(0, 0, 0);
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     color: white;
+    position: relative;
+    bottom: 0;
 }
 
 .logo {
     height: 40px;
     margin-bottom: 1rem;
-    position: relative;
-    left: 5px;
 }
 
-.social-icons-container{
+.social-icons-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,22 +166,26 @@ footer {
     margin-bottom: 1rem;
 }
 
-.social-icon{
+.social-icon {
     height: 50px;
     width: 50px;
     border-radius: 50px;
     border: 1px solid white;
-    background-image: url(/imagenes/Instagram.png);
     background-position: center;
     background-size: 40%;
     background-repeat: no-repeat;
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
-.social-icon:nth-of-type(2){
+.social-icon {
+    background-image: url(/imagenes/Instagram.png);
+}
+
+.social-icon:nth-of-type(2) {
     background-image: url(/imagenes/WhatsApp.png);
 }
 
-.social-icon:nth-of-type(3){
-    background-image: url(/imagenes/Facebook.png);
+.social-icon:nth-of-type(3) {
+    background-image: url(/imagenes/Facebook.png); 
 }
+*/

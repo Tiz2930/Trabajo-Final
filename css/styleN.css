@@ -42,6 +42,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .encabezado h1 {
@@ -59,29 +60,44 @@ nav a:hover {
 #datos h1 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
 }
 
 #datos ul {
     margin-bottom: 20px;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 #datos li {
     margin-bottom: 10px;
+    font-size: 18px;
+    color: #34495e;
 }
 
 /* Estilos de la sección de consulta de usuario */
 #consultaUsuario {
-    background-color: #fff;
+    background-color: #ffffff;
+    opacity: 0.95;
     margin: 20px auto;
-    padding: 20px;
+    padding: 30px;
     width: 80%;
     max-width: 800px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#consultaUsuario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #27ae60;
+    font-size: 22px;
 }
 
 #consultaUsuario ul {
     padding: 0;
+    list-style-type: none;
 }
 
 #consultaUsuario ul li {
@@ -92,29 +108,39 @@ nav a:hover {
 
 #consultaUsuario input[type="text"],
 #consultaUsuario input[type="email"],
-#consultaUsuario input[type="tel"] {
+#consultaUsuario input[type="tel"],
+#consultaUsuario textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
+    font-size: 16px;
+    color: #34495e;
+}
+
+#consultaUsuario input[type="consulta"] {
+    resize: vertical;
+    height: 100px;
 }
 
 #btn-consulta {
-    margin-top: 10px;
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #27ae60;
     color: white;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 #btn-consulta:hover {
-    background-color: #555;
+    background-color: #2ecc71;
 }
+
 
 /*Footer */
 
