@@ -1,193 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-* {
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor de Items */
+.contenedor-items {
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista */
+#lista {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lista li {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#lista li .tamaño {
+    margin-bottom: 15px;
+}
+
+#lista li input[type="number"] {
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
-    background-color: white;
-}
-
-header {
-    background-color: #000000;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-nav a {
-    text-decoration: none;
-    display: inline-block;
-    color: white;
-    padding: 25px;
-}
-
-nav a:hover {
-    background-color: green;
-}
-
-.card {
-    width: 300px;
-    height: 350px;
-    margin-left: 100px;
-    margin-top: 100px;
-    margin-right: 100px;
-    border-top: 50px;
-    border-radius: 05px;
-    background-color: rgb(212, 207, 207);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.ofertas {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-basis: auto;
-    border-radius: 05px;
-    transition: all 300ms;
-    box-shadow: black;
-}
-
-.ofertas img:hover {
-    transform: scale(1.05);
-}
-
-.imagenCardGalletitas {
-    height: 100%;
-    width: 100%;
-    background: none;
-    border-radius: 05px;
-    background-color: rgb(212, 207, 207);
-    box-shadow: black;
-}
-
-.cantidad {
-    background-color: rgb(212, 207, 207);
-    color: black;
+#lista li button {
+    margin-top: 10px;
     padding: 10px;
-    font-size: 16px;
-    border: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.comprar {
-    background-color: rgb(212, 207, 207);
-    margin: 0 auto;
-    padding: 10px 10px;
-    font-size: 14px;
-
-}
-
-
-div p {
-    background-color: rgb(212, 207, 207);
-    text-align: center;
-
-}
-
-.ofertas {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-basis: auto;
-    border-radius: 05px;
-    transition: all 300ms;
-    box-shadow: black;
-}
-
-.ofertas img:hover {
-    transform: scale(1.05);
-}
-
-.imagenCardGalletitas {
-    height: 100%;
-    width: 100%;
-    background: none;
-    border-radius: 05px;
-    background-color: rgb(212, 207, 207);
-    box-shadow: black;
-}
-
-.cantidad {
-    background-color: rgb(212, 207, 207);
-    color: black;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-
-}
-
-.comprar {
-    background-color: rgb(212, 207, 207);
-    margin: 0 auto;
-    padding: 10px 10px;
-    font-size: 14px;
-
-}
-
-
-div p {
-    background-color: rgb(212, 207, 207);
-    text-align: center;
-
-}
-
-/*Footer */
-
-footer {
-    width: 100%;
-    position: relative;
-    top: 200px;
-    left: 0;
-    padding: 1rem;
-    background-color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    background: #28a745;
     color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.logo {
-    height: 40px;
-    margin-bottom: 1rem;
-    position: relative;
-    left: 5px;
+#lista li button:hover {
+    background: #218838;
 }
 
-.social-icons-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
+/* Mensajes de alerta */
+#lista li .mensaje {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
-.social-icon {
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
-    border: 1px solid white;
-    background-image: url(/imagenes/Instagram.png);
-    background-position: center;
-    background-size: 40%;
-    background-repeat: no-repeat;
-    margin: 1rem;
+#lista li .mensaje.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
-.social-icon:nth-of-type(2) {
-    background-image: url(/imagenes/WhatsApp.png);
-}
-
-.social-icon:nth-of-type(3) {
-    background-image: url(/imagenes/Facebook.png);
+#lista li .mensaje.exito {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
