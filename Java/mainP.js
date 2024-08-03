@@ -1,87 +1,112 @@
-
-
-
-// Obtener el contenedor de la lista de productos
 let lista = document.getElementById("lista");
-// Datos de productos
+
 const productos = [
-    "pepas",
-    "coca",
-    "arroz",
-    "magistral",
-    "gdeagua",
-    "dove",
-    "aceite",
-    "fideos",
-    "papas",
-    "gomitas",
-    "pureDeTomates",
-    "azucar",
-    "teMarolio",
-    "cafe",
-    "alfajor",
-    "leche",
-    "mermelada"
+    "Galletitas Pepas",
+    "Coca Cola",
+    "Arroz Marolio",
+    "Detergente Magistral",
+    "Galletitas de agua",
+    "Jabon Dove",
+    "Aceite Natura",
+    "Fideos Lucchetti",
+    "Papas Pringles",
+    "Gomitas Mogul",
+    "Pure de tomate",
+    "Azucar Chango",
+    "Te Marolio",
+    "Cafe Dolca",
+    "Alfajor Fantoche",
+    "Leche La Serenisima",
+    "Mermelada "
 ];
-const precios = [1300,2900,2500,1000,1500,2000,1000,1600,3000,1200,900,1000,1700,5000,800,1500,2500];
-const stock = [30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30];
-const imagenes = ["./imagenes/pepasTerepin.png",
-    "./imagenes/cocaCola.jpg",
-    "./imagenes/arrozMarolio.png",
-    "./imagenes/detergenteMagistral.png",
-    "./imagenes/galletitasDeAgua.png",
-    "./imagenes/jabonDove.png",
-    "./imagenes/aceiteNatura.png",
-    "./imagenes/fideosLucchetti.png",
-    "./imagenes/papasPringles.png",
-    "./imagenes/gomitas.png",
-    "./imagenes/pureDeTomates.png",
-    "./imagenes/azucar.png",
-    "./imagenes/teMarolio.png",
-    "./imagenes/cafe.png",
-    "./imagenes/alfajorFantoche.png",
-    "./imagenes/leche.png",
-    "./imagenes/mermelada.png"
+const precios = [1300, 2900, 2500, 1000, 1500, 2000, 1000, 1600, 3000, 1200, 900, 1000, 1700, 5000, 800, 1500, 2500];
+const stock = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
+const imagenes = [
+    "/imagenes/pepasTerepin.png",
+    "/imagenes/cocaCola.jpg",
+    "/imagenes/arrozMarolio.png",
+    "/imagenes/magistral-750.png",
+    "/imagenes/galletitasDeAgua.png",
+    "/imagenes/jabonDove.png",
+    "/imagenes/aceiteNatura.png",
+    "/imagenes/fideosLuchetti.png",
+    "/imagenes/papasPringles.png",
+    "/imagenes/gomitasMogul.png",
+    "/imagenes/pureDeTomates.png",
+    "/imagenes/azucarChango.png",
+    "/imagenes/teMarolio.png",
+    "/imagenes/cafeDolca.png",
+    "/imagenes/alfajorFantoche.png",
+    "/imagenes/lecheLaSerenisima.png",
+    "/imagenes/mermeladaArcor.png"
 ];
-// Función para pintar productos
+
 function pintarProductos(arrayProductos, arrayPrecios, arrayStock, arrayImagenes) {
-    lista.innerHTML = ""; // Limpia la lista antes de agregar nuevos productos
+    lista.innerHTML = "";
     for (let i = 0; i < arrayProductos.length; i++) {
-        // Crear un nuevo elemento <li> para cada producto
+
         let li = document.createElement("li");
         li.classList.add("tamaño");
-        // Crear el contenido HTML para el producto
+
         li.innerHTML = `
-            <img src="${arrayImagen[i]}" alt="${arrayImagen[i]}" class="imagen-producto"><br>
-            Producto: ${arrayProductos[i]}<br>
+            <img src="${arrayImagenes[i]}" alt="${arrayImagenes[i]}" class="imagen-producto"><br>
+            <span class="producto"> ${arrayProductos[i]} </span> <br> 
             Precio: $${arrayPrecios[i]}<br>
-            Stock: <input type="number" id="stock${i}" value="${arrayStock[i]}" readonly><br>
+            Stock: ${arrayStock[i]}<br>
             Cantidad a comprar: <input type="number" id="entrada${i}" placeholder="Ingrese cantidad"><br>
             <button id="btn${i}" class="descontarStock">Comprar</button>
         `;
-        // Añadir el <li> al contenedor de la lista
+
         lista.appendChild(li);
-        // Añadir el evento click a cada botón
+
         document.getElementById(`btn${i}`).addEventListener("click", () => {
             comprar(i);
         });
     }
 }
-// Función para manejar la compra
+
 function comprar(index) {
-    const stockHTML = document.getElementById(`stock${index}`);
-    const entradaHTML = document.getElementById(`entrada${index}`);
-    const stockActual = parseInt(stockHTML.value);
-    const cantidad = parseInt(entradaHTML.value);
-    if (cantidad > 0 && cantidad <= stockActual) {
-        stockHTML.value = stockActual - cantidad;
-        entradaHTML.value = "";
-        alert(`Compra realizada exitosamente.`);
+    const cantidad = parseInt(document.getElementById(`entrada${index}`).value);
+    if (cantidad > 0 && cantidad <= stock[index]) {
+        stock[index] -= cantidad;
+
+        const nuevoContenido = `
+            <img src="${imagenes[index]}" alt="${productos[index]}" class="imagen-producto"><br>
+            <span class="producto"> ${productos[index]} </span> <br> 
+            Precio: $${precios[index]}<br>
+            Stock: ${stock[index]}<br>
+            Cantidad a comprar: <input type="number" id="entrada${index}" placeholder="Ingrese cantidad"><br>
+            <button id="btn${index}" class="descontarStock">Comprar</button>
+        `;
+
+        // Reemplazar el contenido del li
+        document.querySelector(`#lista li:nth-child(${index + 1})`).innerHTML = nuevoContenido;
+
+        // Volver a añadir el event listener para el botón de compra
+        document.getElementById(`btn${index}`).addEventListener("click", () => {
+            comprar(index);
+        });
+
+ 
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Compra realizada exitosamente.",
+            showConfirmButton: false,
+            timer: 1500
+        });
     } else {
-        alert('Cantidad no válida. Debe ser mayor que 0 y menor o igual al stock.');
+
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Cantidad no válida. Debe ser mayor que 0 y menor o igual al stock.",
+        });
     }
 }
-// Llamar a la función para pintar productos cuando la página carga
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     pintarProductos(productos, precios, stock, imagenes);
 });

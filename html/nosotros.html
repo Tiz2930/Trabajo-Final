@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
         <nav>
             <a class="inicio" href="../index.html">INICIO</a>
             <a class="productos" href="../html/productos.html">PRODUCTOS</a>
-            <a class="carrito" href="../html/nosotros.html">CONTACTANOS</a>
+            <a class="nosotros" href="../html/nosotros.html">CONTACTANOS</a>
         </nav>
     </header>
 
@@ -60,42 +60,45 @@
         </div>
 
         <div id="consultaUsuario">
-            <ul>
-                <h2>Realize su consulta aqui</h2>
-                <li>
-                    <b>Nombre:</b>
-                    <input type="text" placeholder="Ingrese su nombre aqui...">
-                </li>
-                <li>
-                    <b>Apellido:</b>
-                    <input type="email" placeholder="Ingrese su email aqui...">
-                </li>
-                <li>
-                    <b>Telefono:</b>
-                    <input type="tel" placeholder="Ingrese su numero de telefono aqui...">
-                </li>
-                <li>
-                    <b>Consulta:</b>
-                    <input type="consulta" placeholder="Ingrese su consulta aqui...">
-                    <button id="btn-consulta">Enviar</button>
-                </li>
-            </ul>
+            <form id="form-consulta">
+                <ul>
+                    <h2>Realice su consulta aquí</h2>
+                    <li>
+                        <b>Nombre:</b>
+                        <input id="nombre" type="text" placeholder="Ingrese su nombre aquí..." required>
+                    </li>
+                    <li>
+                        <b>Apellido:</b>
+                        <input id="apellido" type="text" placeholder="Ingrese su apellido aquí..." required>
+                    </li>
+                    <li>
+                        <b>Teléfono:</b>
+                        <input id="telefono" type="tel" placeholder="Ingrese su número de teléfono aquí..." required>
+                    </li>
+                    <li>
+                        <b>Email:</b>
+                        <input id="email" type="email" placeholder="Ingrese su dirección de email aquí..." required>
+                    </li>
+                    <li>
+                        <b>Consulta:</b>
+                        <input id="consulta" type="text" placeholder="Ingrese su consulta aquí..." required>
+                    </li>
+                    <li>
+                        <button id="btn-consulta">Enviar</button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </div>
 
-
     <footer>
-        <img class="logo" src="/imagenes/icon.png" alt="logo">
+        <img class="logo" src="../imagenes/icon.png" alt="logo">
         <div class="social-icons-container">
             <a href="https://www.instagram.com/" class="social-icon"></a>
-
             <a href="https://web.whatsapp.com/" class="social-icon"></a>
-
             <a href="https://www.facebook.com/reel/641293297814995" class="social-icon"></a>
         </div>
-
         <span class="copyright">&copy;2024 <b>CITY MARKET</b> Todos los derechos reservados</span>
-
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
