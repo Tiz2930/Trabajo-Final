@@ -1,4 +1,5 @@
 let lista = document.getElementById("lista");
+let totalCompra = 0; // Variable para acumular el total de las compras
 
 const productos = [
     "Galletitas Pepas",
@@ -22,23 +23,23 @@ const productos = [
 const precios = [1300, 2900, 2500, 1000, 1500, 2000, 1000, 1600, 3000, 1200, 900, 1000, 1700, 5000, 800, 1500, 2500];
 const stock = [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30];
 const imagenes = [
-    "/imagenes/pepasTerepin.png",
-    "/imagenes/cocaCola.jpg",
-    "/imagenes/arrozMarolio.png",
-    "/imagenes/magistral-750.png",
-    "/imagenes/galletitasDeAgua.png",
-    "/imagenes/jabonDove.png",
-    "/imagenes/aceiteNatura.png",
-    "/imagenes/fideosLuchetti.png",
-    "/imagenes/papasPringles.png",
-    "/imagenes/gomitasMogul.png",
-    "/imagenes/pureDeTomates.png",
-    "/imagenes/azucarChango.png",
-    "/imagenes/teMarolio.png",
-    "/imagenes/cafeDolca.png",
-    "/imagenes/alfajorFantoche.png",
-    "/imagenes/lecheLaSerenisima.png",
-    "/imagenes/mermeladaArcor.png"
+    "../imagenes/pepasTerepin.png",
+    "../imagenes/cocaCola.jpg",
+    "..imagenes/arrozMarolio.png",
+    "../imagenes/magistral-750.png",
+    "../imagenes/galletitasDeAgua.png",
+    "../imagenes/jabonDove.png",
+    "../imagenes/aceiteNatura.png",
+    "../imagenes/fideosLuchetti.png",
+    "../imagenes/papasPringles.png",
+    "../imagenes/gomitasMogul.png",
+    "../imagenes/pureDeTomates.png",
+    "../imagenes/azucarChango.png",
+    "../imagenes/teMarolio.png",
+    "../imagenes/cafeDolca.png",
+    "../imagenes/alfajorFantoche.png",
+    "../imagenes/lecheLaSerenisima.png",
+    "../imagenes/mermeladaArcor.png"
 ];
 
 function pintarProductos(arrayProductos, arrayPrecios, arrayStock, arrayImagenes) {
@@ -69,6 +70,10 @@ function comprar(index) {
     const cantidad = parseInt(document.getElementById(`entrada${index}`).value);
     if (cantidad > 0 && cantidad <= stock[index]) {
         stock[index] -= cantidad;
+        
+        // Calcular el total de la compra actual
+        const totalProducto = cantidad * precios[index];
+        totalCompra += totalProducto; // Sumar al total acumulado
 
         const nuevoContenido = `
             <img src="${imagenes[index]}" alt="${productos[index]}" class="imagen-producto"><br>
@@ -87,13 +92,14 @@ function comprar(index) {
             comprar(index);
         });
 
- 
+        // Mostrar un mensaje de éxito con el total de la compra
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Compra realizada exitosamente.",
+            title: `Compra realizada exitosamente.`,
+            text: `Total de la compra: $${totalProducto}. Total acumulado: $${totalCompra}.`,
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
         });
     } else {
 
@@ -104,8 +110,6 @@ function comprar(index) {
         });
     }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     pintarProductos(productos, precios, stock, imagenes);
